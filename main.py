@@ -23,7 +23,7 @@ def year_word(age):
         return "лет"
 
 
-wines = pandas.read_excel('wine3.xlsx', keep_default_na=False)
+wines = pandas.read_excel('assortment.xlsx', keep_default_na=False)
 all_wines = wines.to_dict(orient='records')
 
 grouped = defaultdict(list)
