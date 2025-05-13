@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 import os
 
 
-def year_word(age):
+def declension_of_year(age):
     if 11 <= age % 100 <= 14:
         return "лет"
     last_number = age % 10
@@ -29,7 +29,7 @@ def main():
     wines = pandas.read_excel(file_path, keep_default_na=False)
     all_wines = wines.to_dict(orient='records')
 
-    grouped = defaultdict(list)
+    grouped_categories = defaultdict(list)
 
     for wine in all_wines:
         category = wine['Категория']
@@ -40,17 +40,17 @@ def main():
             'Картинка': wine['Картинка'],
             'Акция': wine['Акция']
         }
-        grouped[category].append(drink_info)
+        grouped_categories[category].append(drink_info)
 
-    then_year = 1920
+    year_of_creation = 1920
     now_year = datetime.now().year
-    age = now_year - then_year
-    year = year_word(age)
+    age = now_year - year_of_creation
+    year = declension_of_year(age)
 
     rendered_page = template.render(
         age=age,
         year=year,
-        wines=dict(grouped)
+        wines=grouped_categories
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
