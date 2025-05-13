@@ -3,6 +3,8 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from datetime import datetime
 from collections import defaultdict
 import pandas
+from dotenv import load_dotenv
+import os
 
 
 def year_word(age):
@@ -17,12 +19,14 @@ def year_word(age):
         return "лет"
 
 def main():
+    load_dotenv()
+    file_path = os.getenv('WINE_FILE_PATH', 'assotment.xlsx')
     env = Environment(
     loader=FileSystemLoader('.'),
     autoescape=select_autoescape(['html'])
     )
     template = env.get_template('template.html')
-    wines = pandas.read_excel('assortment.xlsx', keep_default_na=False)
+    wines = pandas.read_excel(file_path, keep_default_na=False)
     all_wines = wines.to_dict(orient='records')
 
     grouped = defaultdict(list)
