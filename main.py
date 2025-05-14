@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 import os
 
 
-def declension_of_year(age):
+def get_year_word(age):
     if 11 <= age % 100 <= 14:
         return "лет"
     last_number = age % 10
@@ -20,11 +20,11 @@ def declension_of_year(age):
 
 def main():
     load_dotenv()
-    file_path = os.getenv('WINE_FILE_PATH', 'assotment.xlsx')
+    file_path = os.getenv('WINE_FILE_PATH', 'assortment.xlsx')
     env = Environment(
-    loader=FileSystemLoader('.'),
-    autoescape=select_autoescape(['html'])
-    )
+        loader=FileSystemLoader('.'),
+        autoescape=select_autoescape(['html'])
+        )
     template = env.get_template('template.html')
     wines = pandas.read_excel(file_path, keep_default_na=False)
     all_wines = wines.to_dict(orient='records')
