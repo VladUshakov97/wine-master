@@ -9,6 +9,18 @@
 ```bash
 pip install -r requirements.txt
 ```
+- Установите переменные окружения
+
+**Пример (Linux/macOS):**
+```bash
+export WINE_FILE_PATH=путь/до/файла.xlsx
+python main.py
+```
+**Пример (Windows, PowerShell):**
+```bash
+$env:WINE_FILE-PATH="путь/до/файла.xlsx"
+python main.py
+```
 ## Пример входных данных
 
 Программа ожидает файл Excel `assortment.xlsx` с таблицей, содержащей следующие столбцы:
