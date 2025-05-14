@@ -7,9 +7,7 @@
 - Для запуска требуется Python 3.7+
 - Установите зависимости
 ```bash
-pip install jinja2
-pip install pandas
-pip install openpyxl
+pip install -r requirements.txt
 ```
 ## Пример входных данных
 
