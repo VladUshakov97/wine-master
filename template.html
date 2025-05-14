@@ -136,22 +136,15 @@
                       <p>
                         Сорт винограда — {{ wine['Сорт'] }}<br>
                         <span class="price">{{ wine['Цена'] }} ₽</span>
-                      </p>
-                    {% else %}
-                      <p>
-                        <span class="price">{{ wine['Цена'] }} ₽</span>
-                      </p>
-                    {% endif %}
+                      </p>                 
+                {% endif %}
                 </div>
             </div>
         {% endfor %}
     </div>
 {% endfor %}
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-
+</div>
+    
     <div class="hero-2" style="background-image: url('assets/hero_2.jpg');">
     <div><a id="feedback"></a></div>
      <div class="container">
